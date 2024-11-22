@@ -3,7 +3,7 @@
 
 __global__ void vectorAddKernel(float *A, float *B, float *C, int N){
 
-  int id = gridDim.x * blockIdx.x + threadIdx.x;
+  int id = blockDim.x * blockIdx.x + threadIdx.x;
   int stride = gridDim.x * blockDim.x;
   //printf("Entered Kernel\n");
   for(int i=id; i<N; i+=stride){
@@ -36,7 +36,7 @@ extern "C" void vectorAdd(float *A, float *B, float *C, int N) {
   cudaMemcpy(B_gpu,  B, size, cudaMemcpyHostToDevice);
   cudaMemcpy(C_gpu,  C, size, cudaMemcpyHostToDevice);
   
-  vectorAddKernel<<<128,512>>>(A_gpu,B_gpu,C_gpu,N);
+  vectorAddKernel<<<1,1>>>(A_gpu,B_gpu,C_gpu,N);
   
   cudaMemcpy(A, A_gpu, size, cudaMemcpyDeviceToHost);
   cudaMemcpy(B, B_gpu, size, cudaMemcpyDeviceToHost);
