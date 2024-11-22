@@ -36,7 +36,7 @@ extern "C" void vectorAdd(float *A, float *B, float *C, int N) {
   cudaMemcpy(B_gpu,  B, size, cudaMemcpyHostToDevice);
   cudaMemcpy(C_gpu,  C, size, cudaMemcpyHostToDevice);
   
-  vectorAddKernel<<<1,1>>>(A_gpu,B_gpu,C_gpu,N);
+  vectorAddKernel<<<128,512>>>(A_gpu,B_gpu,C_gpu,N);
   
   cudaMemcpy(A, A_gpu, size, cudaMemcpyDeviceToHost);
   cudaMemcpy(B, B_gpu, size, cudaMemcpyDeviceToHost);
