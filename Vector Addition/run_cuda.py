@@ -30,6 +30,8 @@ def test_vector_addition():
         print("CUDA Test Passed!")
     else:
         print("CUDA Test Failed!")
+        #print(vec_c)
+        #print(expected_output)
 
 if __name__ == "__main__":
     test_vector_addition()

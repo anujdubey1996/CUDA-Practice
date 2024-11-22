@@ -1,7 +1,7 @@
 from utils.helpers import generate_vector, save_test_case
 
 # Parameters
-VECTOR_SIZE = 1000
+VECTOR_SIZE = 1000000
 file_name = "vector_addition_test.json"
 
 # Generate test case
