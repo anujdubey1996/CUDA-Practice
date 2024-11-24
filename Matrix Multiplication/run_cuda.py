@@ -30,6 +30,8 @@ def test_matrix_multiplication():
                     c_int(M), c_int(N), c_int(K))
 
     # Validate the result
+    print(mat_c)
+    print(expected_output)
     if validate_result(mat_c, expected_output):
         print("CUDA Test Passed!")
     else:
