@@ -2,7 +2,7 @@ from utils.helpers import generate_matrix, save_test_case
 import numpy as np
 
 # Parameters
-M, N, K = 500, 500, 500  # Matrix dimensions: A[MxN], B[NxK], C[MxK]
+M, N, K = 5000, 5000, 5000  # Matrix dimensions: A[MxN], B[NxK], C[MxK]
 file_name = "matrix_multiplication_test.json"
 
 # Generate test case
